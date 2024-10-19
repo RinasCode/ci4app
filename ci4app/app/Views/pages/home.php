@@ -1,9 +1,11 @@
-<div class="cointainer">
+<?= $this->extend('layout/template'); ?>
+<?= $this->section('content'); ?>
+<div class="container">
     <div class="row">
         <div class="col">
             <h1>Komik Apps by Rina</h1>
-            <!-- <?= $tes[1]; ?> panggil dengan array -->
-            <!-- <?php dd($tes); ?> panggil pakai d var dump, klo dd var dump and die -->
+            <p>Komiks Apps by Rina adalah sebuah aplikasi yang berfungsi sebagai pusat data komik...</p>
         </div>
     </div>
 </div>
+<?= $this->endSection(); ?>
