@@ -79,9 +79,22 @@ class Komik extends BaseController
           'errors' => [
             'required' => '{field} komik harus diisi.',
             'is_unique' => '{field} komik sudah terdaftar.'
-          ]
+          ],
+          ],
+          'penulis' => [
+            'rules' => 'required',
+            'errors' => [
+              'required' => '{field} komik harus diisi.'
+            ],
+          ],
+          'penerbit' => [
+            'rules' => 'required',
+            'errors' => [
+              'required' => '{field} komik harus diisi.'
+            ],
+          ],
         ]
-      ])){
+      )){
         $validation = \Config\Services::validation();
         // dd($validation);
         // kirima data validasinya ke create
