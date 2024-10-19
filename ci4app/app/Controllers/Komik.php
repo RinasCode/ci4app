@@ -12,13 +12,14 @@ class Komik extends BaseController
     {
         $this->komikModel = new KomikModel();
     }
+   
     public function index()
     {   
-      $komik = $this->komikModel->findAll();
+      // $komik = $this->komikModel->findAll();
       
       $data = [
         'title' => 'Daftar Komik',
-        'komik' => $komik
+        'komik' => $this->komikModel->getKomik()
       ];
 
       //ccara konek ke database tanpa model
@@ -41,7 +42,51 @@ class Komik extends BaseController
       return view('komik/index',$data);  
     }
 
+    public function detail($slug)
+    {
+      //  $komik = $this->komikModel->getKomik($slug);
+      //  dd($komik);
+
+      $data = [
+        'title' => 'Detail Komik',
+        'komik' => $this->komikModel->getKomik($slug)
+      ];
+
+      return view('komik/detail',$data);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
