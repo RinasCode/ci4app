@@ -22,6 +22,6 @@ use CodeIgniter\Router\RouteCollection;
 // $routes->get('user', 'Admin\User::index');
 
 //controller yang di pakai 
-$routes->get('/', 'Home::index');
-$routes->get('pages', 'Pages::index');
+$routes->get('/', 'Pages::index');
 $routes->get('pages/about', 'Pages::about');
+$routes->get('pages/contact', 'Pages::contact');
