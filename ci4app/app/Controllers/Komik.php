@@ -61,13 +61,26 @@ class Komik extends BaseController
     }
 
     public function create(){
+      // session();
+      //ambil validasi dari save
       $data = [
-        'title' => 'Form Tambah Data Komik'
+        'title' => 'Form Tambah Data Komik',
+        'validation'=>\Config\Services::validation()
       ];
       return view('komik/create',$data);
     }
     
     public function save(){
+
+      //validasi di lakukan sebelum datanya di save 
+      if(!$this->validate([
+        'judul' => 'required|is_unique[komik.judul]'
+      ])){
+        $validation = \Config\Services::validation();
+        // dd($validation);
+        // kirima data validasinya ke create
+        return redirect()->to('/komik/create')->withInput()->with('validation',$validation);
+      }
       // dd($this->request->getVar('judul')); ambil satu ajah 
       // dd($this->request->getVar());
       // - untuk separator kalo ada spasi
@@ -81,7 +94,7 @@ class Komik extends BaseController
       ]);
 
       session()->setFlashdata('pesan','Data berhasil ditambahkan.');
-      
+
       return redirect()->to('/komik');
     }
 }
