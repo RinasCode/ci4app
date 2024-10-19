@@ -30,7 +30,19 @@ class Pages extends BaseController
     public function contact()
     { 
         $data = [
-            'title' => 'Contact | Komik Apps'
+            'title' => 'Contact | Komik Apps',
+            'alamat' => [
+                [
+                    'tipe' => 'Rumah',
+                    'alamat' => 'Jl. Abc No. 123',
+                    'kota' => 'Bandung'
+                ],
+                [
+                    'tipe' => 'Kantor',
+                    'alamat' => 'Jl. Setiabudi No. 193',
+                    'kota' => 'Bandung'
+                ]
+            ]
         ];
         return view('pages/contact', $data);
         // echo view('layout/header', $data);
