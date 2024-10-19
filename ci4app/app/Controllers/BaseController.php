@@ -48,7 +48,7 @@ abstract class BaseController extends Controller
      */
     protected $nama;
 
-    /**
+    /** 
      * @return void
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
@@ -60,5 +60,9 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
         $this->nama="Achmad Solichin";
+        //===> aku ditekan di base controller
+        // pakai ini kalo dibutuhin di semua controller.
+        // $this->komikModel = new \App\Models\KomikModel();
+        // janganlupa variabel sama string dibagian atas ini di aktifin dlu ya anak baik   
     }
 }
