@@ -119,3 +119,5 @@ class KomikModel extends Model
 }
 ```
 
+# udah pakai crf juga biar ga di bajak hanya bisa di buka lewat halaman ini saja.
+
