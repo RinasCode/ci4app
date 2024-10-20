@@ -5,6 +5,8 @@
     <div class="row">
         <div class="col">
             <h2>Form Tambah Data Komik</h2>
+            <?= session()->get('validation') ? session()->get('validation')->getError('sampul') : ''; ?>
+
             <form action="/komik/save" method="post" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 

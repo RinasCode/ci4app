@@ -108,6 +108,7 @@ class Komik extends BaseController
       ]
     )) {
       $validation = \Config\Services::validation();
+      // dd($validation->getErrors());
       // dd($validation);
       // kirima data validasinya ke create
       return redirect()->to('/komik/create')->withInput()->with('validation', $validation);
