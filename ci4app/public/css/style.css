@@ -5,3 +5,24 @@
 .table > tbody > * {
     vertical-align: middle;
 }
+.img-preview {
+    width: 100%; /* Mengatur lebar gambar sesuai kontainer */
+    height: auto; /* Mempertahankan rasio aspek */
+    max-width: 150px; /* Atur lebar maksimal jika perlu */
+    object-fit: cover; /* Memastikan gambar mengisi area yang ditentukan */
+    border-radius: 5px; /* Tambahkan sudut melengkung jika diinginkan */
+}
+
+.custom-file-input {
+    display: none; /* Sembunyikan input file asli */
+}
+
+.custom-file-label {
+    display: inline-block;
+    width: 100%; /* Mengatur lebar label sesuai kontainer */
+    cursor: pointer; /* Menambahkan penunjuk pointer saat hover */
+    padding: 10px; /* Tambahkan padding untuk estetika */
+    border: 1px solid #ced4da; /* Border untuk label */
+    border-radius: 5px; /* Tambahkan sudut melengkung jika diinginkan */
+    text-align: center; /* Pusatkan teks */
+}
