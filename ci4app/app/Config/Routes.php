@@ -27,6 +27,7 @@ $routes->get('pages/about', 'Pages::about');
 $routes->get('pages/contact', 'Pages::contact');
 $routes->get('komik', 'Komik::index');
 $routes->get('people', 'People::index');
+$routes->post('people', 'People::index');
 
 $routes->get('komik/create', 'Komik::create');
 $routes->post('komik/save', 'Komik::save');

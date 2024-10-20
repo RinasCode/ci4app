@@ -17,10 +17,18 @@ class People extends BaseController
   {
     // $komik = $this->komikModel->findAll();
     $currentPage = $this->request->getVar('page_people') ? $this->request->getVar('page_people') : 1;
+    
+    $keyword = $this->request->getVar('keyword');
+    if($keyword) {
+      $people = $this->peopleModel->search($keyword);
+    }else{
+      $people = $this->peopleModel;
+    }
+    // d($this->request->getVar('keyword'));
 
     $data = [
       'title' => 'People List',
-      'people' => $this->peopleModel->paginate(7, 'people'),
+      'people' => $people->paginate(7, 'people'),
       'pager' => $this->peopleModel->pager,
       'currentPage' => $currentPage
     ];
