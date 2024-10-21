@@ -11,9 +11,6 @@ class Pages extends BaseController
             'tes' => ['satu', 'dua', 'tiga']
         ];
         return view('pages/home', $data);
-        // echo view('layout/header', $data);
-        // echo view('pages/home');
-        // echo view('layout/footer');
     }
 
     public function about()
@@ -22,9 +19,6 @@ class Pages extends BaseController
             'title' => 'About | Komik Apps'
         ];
         return view('pages/about', $data);
-        // echo view('layout/header', $data);
-        // echo view('pages/about');
-        // echo view('layout/footer');
     }
 
     public function contact()
@@ -45,9 +39,6 @@ class Pages extends BaseController
             ]
         ];
         return view('pages/contact', $data);
-        // echo view('layout/header', $data);
-        // echo view('pages/contact');
-        // echo view('layout/footer');
     }
 
 }

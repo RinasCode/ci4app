@@ -23,37 +23,19 @@ class Komik extends BaseController
       'komik' => $this->komikModel->getKomik()
     ];
 
-    //ccara konek ke database tanpa model
-    //   $db = \Config\Database::connect();
-    //     $komik = $db->query("SELECT * FROM komik");
-    //     // dd($komik);
-    //     foreach ($komik->getResultArray() as $row)
-    //     {
-    //         d($row);
-    //     }
-
-    //cara konek ke database dengan model
-    // $komikModel = new \App\Models\KomikModel();
-
-
-    // $komik = $this->komikModel->findAll();
-
-    // dd($komik); //hasilny dalam bentuk tabel
-
     return view('komik/index', $data);
   }
 
   public function detail($slug)
   {
-    //  $komik = $this->komikModel->getKomik($slug);
-    //  dd($komik);
+
 
     $data = [
       'title' => 'Detail Komik',
       'komik' => $this->komikModel->getKomik($slug)
     ];
 
-    //jika komik tidak ada di tabel
+
     if (empty($data['komik'])) {
       throw new \CodeIgniter\Exceptions\PageNotFoundException('Judul komik ' . $slug . ' tidak ditemukan.');
     }
@@ -63,8 +45,7 @@ class Komik extends BaseController
 
   public function create()
   {
-    // session();
-    //ambil validasi dari save
+
     $data = [
       'title' => 'Form Tambah Data Komik',
       'validation' => \Config\Services::validation()
@@ -75,7 +56,7 @@ class Komik extends BaseController
   public function save()
   {
 
-    //validasi di lakukan sebelum datanya di save 
+   
     if (!$this->validate(
       [
         'judul' => [
@@ -97,30 +78,15 @@ class Komik extends BaseController
             'required' => '{field} komik harus diisi.'
           ],
         ],
-        // 'sampul' => [
-        //   'rules' => 'max_size[sampul,1024]|is_image[sampul]|mime_in[sampul,image/jpg,image/jpeg,image/png]',
-        //   'errors' => [
-        //     'max_size' => 'Ukuran gambar terlalu besar',
-        //     'is_image' => 'Yang anda pilih bukan gambar',
-        //     'mime_in' => 'Yang anda pilih bukan gambar'
-        //   ]
-        // ]
+       
       ]
     )) {
       $validation = \Config\Services::validation();
-      // dd($validation->getErrors());
-      // dd($validation);
-      // kirima data validasinya ke create
+    
       return redirect()->to('/komik/create')->withInput()->with('validation', $validation);
-      // return redirect()->to('/komik/create')->withInput();
-
+  
     }
-    // dd($this->request->getVar('judul')); ambil satu ajah 
-    // dd($this->request->getVar());
-    // - untuk separator kalo ada spasi
-    // dd('berhasil');
-
-    //ambil gambar
+   
     $fileSampul = $this->request->getFile('sampul');
     // dd($fileSampul);
 
@@ -259,7 +225,7 @@ class Komik extends BaseController
 
 
 
-//flasg data adalah data didalam session yang hanya muncul 1 kali. di dokumentasi.
+
 
 
 

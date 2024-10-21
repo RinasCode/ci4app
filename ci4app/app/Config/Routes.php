@@ -5,35 +5,34 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-// pemahaman routes di ci 4.
- //even udah punya controller jangan lupa kasih route biar bisa jalan
-// $routes->get('/', 'Home::index');
-// $routes->get('/coba', 'Home::coba');
-// $routes->get('/caca', 'Home::caca');
-// $routes->get('/coba', 'Coba::index');
-// $routes->get('/coba/ayam', 'Coba::ayam');
-// // ini cara penggunaan place holder
-// //$1 ambil nilai dari place holder pertama dan seterusnya.
-// // bisa pakai alpha, num, alnum, any
-// $routes->get('home/caca/(:any)/(:num)', 'Home::caca/$1/$2');
+$routes->setDefaultController('Users'); // Set default controller ke Users
+$routes->get('/', 'Users::login'); // Rute awal menuju login
 
-// // ini cara penggunaan place holder
-// // cara panggil controller di dalam folder
-// $routes->get('user', 'Admin\User::index');
 
-//controller yang di pakai 
-$routes->get('/', 'Pages::index');
+// Rute untuk login
+$routes->get('login', 'Users::login');
+$routes->post('login', 'Users::login'); // Untuk menangani submit form login
+$routes->get('logout', 'Users::logout');
+
+// Rute untuk registrasi
+$routes->get('register', 'Users::register');
+$routes->post('register', 'Users::register'); // Untuk menangani submit form registrasi
+
+// Rute halaman home (hanya bisa diakses jika sudah login)
+$routes->get('home', 'Pages::index', ['filter' => 'auth']);
+
+// Rute lainnya
 $routes->get('pages/about', 'Pages::about');
 $routes->get('pages/contact', 'Pages::contact');
-$routes->get('komik', 'Komik::index');
-$routes->get('people', 'People::index');
-$routes->post('people', 'People::index');
 
-$routes->get('komik/create', 'Komik::create');
-$routes->post('komik/save', 'Komik::save');
-// untuk delete di taro sebelum segment
-$routes->delete('komik/(:num)', 'Komik::delete/$1');
+// Rute untuk Komik
+$routes->get('komik', 'Komik::index', ['filter' => 'auth']);
+$routes->get('komik/create', 'Komik::create', ['filter' => 'auth']);
+$routes->post('komik/save', 'Komik::save', ['filter' => 'auth']);
+$routes->delete('komik/(:num)', 'Komik::delete/$1', ['filter' => 'auth']);
+$routes->get('komik/edit/(:any)', 'Komik::edit/$1', ['filter' => 'auth']);
+$routes->post('komik/update/(:any)', 'Komik::update/$1', ['filter' => 'auth']);
+$routes->get('komik/(:any)', 'Komik::detail/$1', ['filter' => 'auth']);
 
-$routes->get('komik/edit/(:any)', 'Komik::edit/$1');
-$routes->post('komik/update/(:any)', 'Komik::update/$1');
-$routes->get('komik/(:any)', 'Komik::detail/$1');
+// Rute untuk People
+$routes->get('people', 'People::index', ['filter' => 'auth']); // Tambahkan filter jika perlu

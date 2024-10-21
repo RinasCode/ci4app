@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\PeopleModel; // Ensure this path is correct and the PeopleModel class exists in this namespace
+use App\Models\PeopleModel; 
 use CodeIgniter\HTTP\Files\UploadedFile;
 
 class People extends BaseController
