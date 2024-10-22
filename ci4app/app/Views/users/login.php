@@ -25,6 +25,7 @@
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Login</button>
+                
             </form>
             <p class="text-center mt-3">
                 Belum punya akun? <a href="/register">Register</a>

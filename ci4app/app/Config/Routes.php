@@ -34,5 +34,7 @@ $routes->get('komik/edit/(:any)', 'Komik::edit/$1', ['filter' => 'auth']);
 $routes->post('komik/update/(:any)', 'Komik::update/$1', ['filter' => 'auth']);
 $routes->get('komik/(:any)', 'Komik::detail/$1', ['filter' => 'auth']);
 
+
 // Rute untuk People
-$routes->get('people', 'People::index', ['filter' => 'auth']); // Tambahkan filter jika perlu
+$routes->get('people', 'People::index', ['filter' => 'auth']); 
+$routes->post('people', 'People::index', ['filter' => 'auth']);
